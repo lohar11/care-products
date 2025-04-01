@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="stylesheet" href="product.css">
+    
+   
+</head>
+<body>
+
+    <header>
+        <h1 class="product-title">Shop Now</h1>
+        <div class="cart">
+            🛒 Cart (<span id="cart-count">0</span>)
+        </div>
+    </header>    
+
+   
+
+    <div id="menu-list"></div>
+
+    <div class="cart-container">
+        <h2>Order Now</h2>
+        <ul id="cart-items"></ul>
+        <p>Total: <span id="total-price">0</span></p>
+        <button id="checkout-btn">Checkout</button>
+    </div>
+
+    <!-- Firebase & Custom JS Files -->
+    <script type="module" src="product1F.js"></script>
+    <script type="module" src="product.js"></script>
+
+</body>
+</html>

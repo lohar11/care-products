@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fff;
+            margin: 0;
+        }
+
+        .container {
+            width: 30%;
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px #544f4f;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>User Profile</h2>
+        <form>
+            <label>Name:</label>
+            <input type="text" id="profile-name" disabled>
+
+            <label>Email:</label>
+            <input type="email" id="profile-email" disabled>
+
+            <label>Password:</label>
+            <input type="password" id="profile-password" disabled>
+
+            <label>Date of Birth:</label>
+            <input type="date" id="profile-dob" disabled>
+
+            <button type="button" onclick="logout()">Logout</button>
+        </form>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const userData = JSON.parse(localStorage.getItem("userData"));
+            
+            if (userData) {
+                document.getElementById("profile-name").value = userData.name;
+                document.getElementById("profile-email").value = userData.email;
+                document.getElementById("profile-password").value = userData.password;
+                document.getElementById("profile-dob").value = userData.dob;
+            } else {
+                alert("No profile data found. Please log in.");
+                window.location.href = "index3.html";
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem("userData");
+            alert("Logged out successfully!");
+            window.location.href = "index3.html";
+        }
+    </script>
+
+</body>
+</html>
